@@ -3,19 +3,17 @@ class Solution:
 
         arrmap = {}
 
-        for i, j in len(nums):
+        for i, j in enumerate(nums):
             if(target - nums[i] in arrmap):
-                return arrmap[j], i
+                return arrmap[i], i
             
-            else:
-                arrmap[j] = i
-                target = target - nums[i]
+            arrmap[j] = i
+        
+        return []
 
 
-
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.twoSum([3, 2, 4], 6))
 
         
-
-
-
-
