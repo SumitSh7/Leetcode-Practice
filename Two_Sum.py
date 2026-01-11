@@ -7,7 +7,7 @@ class Solution:
 
             value = target - nums[i]
             if(value in arrmap):
-                return arrmap[value], i
+                return (arrmap[value], i)
             
             arrmap[j] = i
         
@@ -19,5 +19,6 @@ if __name__ == "__main__":
     print(sol.twoSum([3, 2, 4], 6))
     print(sol.twoSum([3, 3], 6))
     print(sol.twoSum([2,7,11,15], 9))
+
 
         
