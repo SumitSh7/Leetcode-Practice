@@ -1,6 +1,7 @@
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
 
+        #Using a Second List for placeholding
         # if not nums:
         #     return []
         #
@@ -12,6 +13,7 @@ class Solution:
         #
         # return nums2, len(nums2)
 
+        #Replacing In Place inside the same original list. 
         if not nums:
             return []
         

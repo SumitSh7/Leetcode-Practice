@@ -1,0 +1,17 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+
+
+        for i in range(len(haystack)-len(needle) + 1):
+            if haystack[i:i+len(needle)] == needle:
+                return i, haystack.find(needle)
+            
+        return -1
+
+        
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.strStr("sadbutsad","sad"))
+    print(sol.strStr("leetcode","leeto"))
+    print(sol.strStr("hello","ll"))
+    print(sol.strStr("a","a"))

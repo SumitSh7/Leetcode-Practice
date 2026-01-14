@@ -1,0 +1,24 @@
+class Solution:
+    def removeElement(self, nums: list[int], val: int) -> int:
+
+        if not nums:
+            return 0
+        
+        upd = 0
+
+        for i in range(len(nums)):
+
+            if nums[i] != val:
+                nums[upd] = nums[i]
+                upd += 1
+        
+        print(f"Number of unique elements: {upd}")
+        print(f"Modified array: {nums[:upd]}") 
+        return upd
+
+
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    sol.removeElement([1,1,2,2,3,3,3,4,4,5], 3)
