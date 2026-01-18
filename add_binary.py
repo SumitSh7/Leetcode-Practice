@@ -17,7 +17,6 @@ class Solution:
                 digit_a = 1 if a[i] == '1' else 0
             else:
                 digit_a = 0
-
             if j >= 0:
                 digit_b = 1 if b[j] == '1' else 0
             else:
