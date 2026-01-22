@@ -22,13 +22,23 @@ class Solution:
 
                 curr = curr.left
 
-
             curr = stack.pop()
-
             curr = curr.right
 
         return res
-    
+
+    def postorderRecursive(self, root: Optional[TreeNode]) -> list[int]:
+        res = []
+        
+        def dfs(node):
+            if not node:
+                return
+            dfs(node.left)
+            dfs(node.right)
+            res.append(node.val)
+        
+        dfs(root)
+        return res
 
 
 # Build tree from level-order list representation

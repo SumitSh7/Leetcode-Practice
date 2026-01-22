@@ -20,13 +20,22 @@ class Solution:
 
             curr = stack.pop()
             res.append(curr.val)
-
-
             curr = curr.right
 
         return res
 
-
+    def inorderRecursive(self, root: Optional[TreeNode]) -> list[int]:
+        res = []
+        
+        def dfs(node):
+            if not node:
+                return
+            dfs(node.left)
+            res.append(node.val)
+            dfs(node.right)
+        
+        dfs(root)
+        return res
 
 
 # Build tree from level-order list representation

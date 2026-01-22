@@ -24,11 +24,24 @@ class Solution:
 
 
             curr = stack.pop()
-
             curr = curr.right
 
         return res
     
+    def preorderRecursive(self, root: Optional[TreeNode]) -> list[int]:
+        res = []
+        
+        def dfs(node):
+            if not node:
+                return
+            res.append(node.val)
+            dfs(node.left)
+            dfs(node.right)
+        
+        dfs(root)
+        return res
+
+
 # Build tree from level-order list representation
 def build_tree(values):
     if not values or values[0] is None:
