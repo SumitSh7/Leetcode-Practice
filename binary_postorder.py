@@ -8,24 +8,28 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def postorder(self, root: Optional[TreeNode]) -> list[int]:
+
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        
+        stack = [root]
         res = []
-        stack = []
-        curr = root
-
-        while curr or stack:
-            while curr:
-                res.append(curr)
-
-                if curr.left:
-                    stack.append(curr)
-
-                curr = curr.left
-
+        
+        while stack:
             curr = stack.pop()
-            curr = curr.right
-
-        return res
+            # Add to result (will be reversed later)
+            res.append(curr.val)
+            
+            # For Modified Preorder (Root, Right, Left), push Left then Right
+            # so that Right is popped first.
+            if curr.left:
+                stack.append(curr.left)
+            if curr.right:
+                stack.append(curr.right)
+        
+        # Reverse the list to get Left, Right, Root
+        return res[::-1]
 
     def postorderRecursive(self, root: Optional[TreeNode]) -> list[int]:
         res = []

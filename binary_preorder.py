@@ -8,25 +8,27 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def preorder(self, root: Optional[TreeNode]) -> list[int]:
-        res = []
-        stack = []
-        curr = root
-
-        while curr or stack:
-            while curr:
-                res.append(curr)
-
-                if curr.left:
-                    stack.append(curr)
-
-                curr = curr.left
-
-
-            curr = stack.pop()
-            curr = curr.right
-
-        return res
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+            if not root:
+                return []
+            
+            stack = [root]
+            res = []
+            
+            while stack:
+                # 1. Access the Root
+                node = stack.pop()
+                res.append(node.val)
+                
+                # 2. Push Right child first (so Left is popped next)
+                if node.right:
+                    stack.append(node.right)
+                
+                # 3. Push Left child
+                if node.left:
+                    stack.append(node.left)
+                    
+            return res
     
     def preorderRecursive(self, root: Optional[TreeNode]) -> list[int]:
         res = []
