@@ -9,7 +9,7 @@ class TreeNode:
 
 class Solution:
 
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
         if not root:
             return []
         
